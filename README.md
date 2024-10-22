@@ -1,4 +1,4 @@
-# IgniterJs
+# Crucible
 
 **TODO: Add description**
 
@@ -10,7 +10,7 @@ by adding `igniter_js` to your list of dependencies in `mix.exs`:
 ```elixir
 def deps do
   [
-    {:igniter_js, "~> 0.1.0"}
+    {:crucible, "~> 0.1.0"}
   ]
 end
 ```

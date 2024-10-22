@@ -1,13 +1,25 @@
-defmodule IgniterJs.MixProject do
+defmodule Crucible.MixProject do
   use Mix.Project
+
+  @version "0.1.0"
+  @source_url "https://github.com/TwistingTwists/crucible"
 
   def project do
     [
-      app: :igniter_js,
-      version: "0.1.0",
+      app: :crucible,
+      version: @version,
       elixir: "~> 1.17",
       start_permanent: Mix.env() == :prod,
+      package: package(),
       deps: deps()
+    ]
+  end
+
+  def package() do
+    [
+      licenses: ["Apache-2.0"],
+      links: %{"GitHub" => @source_url},
+      maintainers: ["Abhishek Tripathi"]
     ]
   end
 
@@ -21,8 +33,9 @@ defmodule IgniterJs.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:rustler, "~> 0.35.0", runtime: false}
+      {:rustler_precompiled, "~> 0.8"},
+      # only when you need forced compilation
+      {:rustler, ">= 0.0.0", optional: true}
     ]
-
   end
 end
