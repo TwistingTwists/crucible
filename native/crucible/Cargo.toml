@@ -17,3 +17,5 @@ oxc_ast = {version = "*", features = ["serialize"]}
 oxc_span = "0.32.0"
 serde ={ version = "1.0",features = ["derive"]}
 serde_json = "1.0"
+anyhow = "1.0.90"
+thiserror = "1.0.64"
