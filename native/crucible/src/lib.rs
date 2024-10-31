@@ -2,16 +2,42 @@
 mod errors;
 mod types;
 
-mod imports;
+// mod imports;
+mod semantic_imports;
 
+use anyhow::anyhow;
 // use rustler::{Encoder, Env, NifResult, Term};
 use oxc_allocator::Allocator;
 use oxc_parser::{ParseOptions, Parser};
 use oxc_span::SourceType;
+use oxc_ast::ast::Program;
 use rustler::ResourceArc;
 use crate::types::Result;
 use crate::errors::CrucibleError;
+
 use std::sync::{Arc, Mutex, RwLock};
+
+pub struct ParseResult<'a> {
+    pub program: Program<'a>,
+    pub errors: Vec<oxc_diagnostics::OxcDiagnostic>,
+    pub allocator: &'a Allocator,
+}
+
+pub fn parse_source<'a>(allocator: &'a Allocator, source_code: &'a str) -> anyhow::Result<ParseResult<'a>> {
+    let source_type = SourceType::default();
+
+    let parse_result = Parser::new(allocator, source_code, source_type).parse();
+
+    if !parse_result.errors.is_empty() {
+        return Err(anyhow::anyhow!("Parsing errors encountered".to_string()));
+    }
+
+    Ok(ParseResult {
+        program: parse_result.program,
+        errors: parse_result.errors,
+        allocator,
+    })
+}
 
 
 #[derive(Debug)]
