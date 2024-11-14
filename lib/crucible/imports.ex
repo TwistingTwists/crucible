@@ -3,9 +3,11 @@ defmodule Crucible.Imports do
 
   @type t() :: %__MODULE__{resource: reference()}
 
-  @spec ast_for_imports_from_buffer( String.t(), String.t()) :: {:ok, t()} | {:error, term()}
-  defdelegate ast_for_imports_from_buffer( source_code_string, filename), to: Crucible, as: :ast_for_imports_from_buffer
+  @spec ast_for_imports_from_buffer(String.t(), String.t()) :: {:ok, t()} | {:error, term()}
+  defdelegate ast_for_imports_from_buffer(source_code_string, filename),
+    to: Crucible.Native,
+    as: :ast_for_imports_from_buffer
 
   @spec local_name_exists(t(), String.t()) :: boolean()
-  defdelegate local_name_exists(module, import_name), to: Crucible, as: :local_name_exists
+  defdelegate local_name_exists(module, import_name), to: Crucible.Native, as: :local_name_exists
 end
