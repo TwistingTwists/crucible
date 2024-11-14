@@ -13,16 +13,17 @@ pub enum CrucibleError {
     // InvalidChar,
     // #[error("Tokenizer Error")]
     // Tokenizer(#[from] Box<dyn std::error::Error + Send + Sync>),
-    #[error("IO Error")]
-    Io(#[from] io::Error),
+    // #[error("IO Error")]
+    // Io(#[from] io::Error),
     #[error("Internal Error: {0}")]
     Internal(String),
     #[error("Other error: {0}")]
     Other(String),
-    #[error(transparent)]
-    Unknown(#[from] anyhow::Error),
+    // #[error(transparent)]
+    // Unknown(#[from] anyhow::Error),
     #[error("Serde Error")]
     SerdeJson(#[from] serde_json::Error),
+
 }
 
 impl Encoder for CrucibleError {
@@ -30,5 +31,3 @@ impl Encoder for CrucibleError {
         format!("{self:?}").encode(env)
     }
 }
-
-

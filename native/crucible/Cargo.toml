@@ -10,17 +10,17 @@ path = "src/lib.rs"
 crate-type = ["cdylib"]
 
 [dependencies]
-rustler = "0.34.0"
-oxc_allocator = "0.34.0"
-oxc_parser = "0.34.0"
-oxc_ast = {version = "0.34.0", features = ["serialize"]}
-oxc_span = "0.34.0"
-oxc_diagnostics = "0.34.0"
+rustler = "0.35.0"
+oxc_allocator = "0.36.0"
+oxc_parser = "0.36.0"
+oxc_ast = {version = "0.36.0", features = ["serialize"]}
+oxc_span = "0.36.0"
+oxc_diagnostics = "0.36.0"
 serde ={ version = "1.0",features = ["derive"]}
 serde_json = "1.0"
 anyhow = "1.0.90"
 thiserror = "1.0.64"
 pretty_assertions = "1.4.1"
 derivative = "2.2.0"
-oxc_semantic = {version = "0.34.0", features = ["serialize"]}
-oxc_syntax = { version = "0.34.0", features = ["serialize", "to_js_string"] }
+oxc_semantic = {version = "0.36.0", features = ["serialize"]}
+oxc_syntax = { version = "0.36.0", features = ["serialize", "to_js_string"] }

@@ -2,4 +2,4 @@
 
 use crate::errors::CrucibleError;
 pub type Error = CrucibleError;
-pub type Result<T> = std::result::Result<T, Error> ;
+pub type CrucibleResult<T> = std::result::Result<T, Error>;
