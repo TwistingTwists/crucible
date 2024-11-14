@@ -1,5 +1,4 @@
 use rustler::{Encoder, Env, Term};
-use std::io;
 use thiserror::Error;
 
 rustler::atoms! {
