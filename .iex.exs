@@ -82,4 +82,6 @@ window.liveSocket = liveSocket
 
 ast = Crucible.Imports.ast_for_imports_from_buffer(js_source_code, "app.js")
 
-["phoenix_html", "Socket", "LiveSocket", "topbar", "UpChunk", "hooks"] |> Map.new(fn k -> {k, Crucible.Imports.does_import_exist(ast, k)}end)
+["phoenix_html", "Socket", "LiveSocket", "topbar", "UpChunk", "hooks"] |> Map.new(fn k -> {k, Crucible.Imports.local_name_exists(ast, k)}end)
+
+ast_symbols = Crucible.Symbols.ast_for_symbols_from_buffer(js_source_code, "app.js")
