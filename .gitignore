@@ -25,4 +25,4 @@ igniter_js-*.tar
 # Temporary files, for example, from tests.
 /tmp/
 
-./priv/native/
+priv/native/
