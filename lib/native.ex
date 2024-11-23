@@ -14,5 +14,9 @@ defmodule Crucible.Native do
   def ast_for_imports_from_buffer(_source_code, _filename), do: err()
   def local_name_exists(_module, _import_name), do: err()
 
+  # symbols
+  def ast_for_symbols_from_buffer(_source_code, _filename), do: err()
+  def symbol_names(_module), do: err()
+
   defp err(), do: :erlang.nif_error(:nif_not_loaded)
 end
